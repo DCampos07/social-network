@@ -35,13 +35,13 @@ const ReactionSchema = new Schema(
 
 const ThoughtSchema = new Schema(
   {
-    writtenBy: {
+    usernmae: {
       type: String,
-      required: "Seems you forgot to write your username"
+      required: "Seems you forgot to write your name"
     },
     thoughtText: {
       type: String,
-      required: "You must enter a reaction",
+      required: "You must write down your thougth",
       trim: true,
       minlength: [1, "Oh no! That's not enough characters."],
       maxlength: [280, "Opps, that's too many characters"]
@@ -65,7 +65,7 @@ const ThoughtSchema = new Schema(
 );
 
 ThoughtSchema.virtual('reactionCount').get(function() {
-  return this.reactoins.length;
+  return this.reactions.length;
 });
 
 const Thought = model('Thought', ThoughtSchema);
