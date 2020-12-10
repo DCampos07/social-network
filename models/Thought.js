@@ -35,7 +35,7 @@ const ReactionSchema = new Schema(
 
 const ThoughtSchema = new Schema(
   {
-    usernmae: {
+    username: {
       type: String,
       required: "Seems you forgot to write your name"
     },
