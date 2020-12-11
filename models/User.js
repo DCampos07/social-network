@@ -3,35 +3,45 @@ const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
     {
-        userName: {
+        username: {
             type: String,
             unique: true,
-            required: "Seems you forgot to write your username",
+            required: "Seems you forgot to write your username.",
             trim: true
         },
         email: {
             type: String,
-            required: "Oops, you forgot to write your e-mail address",
             unique: true,
-            match: [/.+@.+\..+/]
+            required: "Oops, you forgot to write your e-mail address.",
+            validate: {
+                validator(validEmail) {
+                  return /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z]{2,6})(\.[a-z]{2,6})?$/.test(
+                    validEmail
+                  );
                 },
-        thought: [{
-            type: Schema.Types.ObjectId,
-            ref: "Thought"
-        }],
-        friends: [{
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }]
+                message: "Oops, you forgot to write your e-mail address",
+              },
+        },
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     },
     {
         toJSON: {
             virtuals: true,
             getters: true
         },
-        // prevents virtuals from creating duplicate of _id as `id`
         id: false
-    }
+    }    
 );
 
 // get total count of comments and replies on retrieval
