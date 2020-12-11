@@ -11,15 +11,10 @@ const UserSchema = new Schema(
         },
         email: {
             type: String,
-            required: "Opps, you forgot to write your e-mail address",
+            required: "Oops, you forgot to write your e-mail address",
             unique: true,
-            validate: {
-                validator(emailValidation) {
-                    return /^([0-9a-zA-Z_\.-]+)@([\da-z\.-]+)\.([a-z]{2,6})(\.[a-z]{2,6})?$/.test(emailvalidation);
+            match: [/.+@.+\..+/]
                 },
-                message: "Opps, you must enter a valid email address"
-            },
-        },
         thought: [{
             type: Schema.Types.ObjectId,
             ref: "Thought"
