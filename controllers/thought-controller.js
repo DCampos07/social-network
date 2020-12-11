@@ -61,7 +61,7 @@ const thoughtController = {
                     return res.status(404).json({ message: 'We were not able to find a Thought found with this id!' });                 
                 }
                 return User.findOneAndUpdate(
-                    { username: dbThoughtData.username },
+                    { userName: dbThoughtData.userName },
                     { $pull: { thoughts: params.thoughtId } },
                     { new: true }
                 )
