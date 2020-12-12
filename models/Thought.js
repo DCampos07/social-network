@@ -16,7 +16,7 @@ const ReactionSchema = new Schema(
       maxlength: [280, "Opps, that's too many characters"]
     },
     
-    userName: {
+    usernName: {
       type: String,
       required: "Seems you forgot to write your username"
     },

@@ -6,21 +6,21 @@ const UserSchema = new Schema(
         userName: {
             type: String,
             unique: true,
-            required: "Seems you forgot to write your username.",
+            required: 'You need to provide your username.',
             trim: true
         },
         email: {
             type: String,
             unique: true,
-            required: "Oops, you forgot to write your e-mail address.",
+            required: 'You need to provide your valid email address.',
             validate: {
                 validator(validEmail) {
-                  return /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z]{2,6})(\.[a-z]{2,6})?$/.test(
-                    validEmail
-                  );
+                    return /^([a-zA-Z0-9_\.-]+)@([\da-z\.-]+)\.([a-z]{2,6})(\.[a-z]{2,6})?$/.test(
+                        validEmail
+                    );
                 },
-                message: "Oops, you forgot to write your e-mail address",
-              },
+                message: "Please enter your valid email address",
+            },
         },
         thoughts: [
             {
@@ -41,13 +41,14 @@ const UserSchema = new Schema(
             getters: true
         },
         id: false
-    }    
+    }
 );
+
 
 // get total count of comments and replies on retrieval
 UserSchema.virtual('friendCount').get(function () {
     return this.friends.length;
-});
+})
 
 const User = model('User', UserSchema);
 
