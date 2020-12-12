@@ -7,12 +7,12 @@ const userController = {
     getAllUsers(req, res) {
         User.find({})
             .populate({
-                path: 'thoughts',
+                path: 'thought',
                 select: ('-__v -userName')
             })
             .populate({
                 path: 'friends',
-                select: ('-__v -thoughts')
+                select: ('-__v -thought')
             })
             .select('-__v')
             .sort({ _id: -1 })
@@ -26,12 +26,12 @@ const userController = {
     getUserById({ params }, res) {
         User.findOne({ _id: params.userId })
             .populate({
-                path: 'thoughts',
+                path: 'thought',
                 select: ('-__v -userName')
             })
             .populate({
                 path: 'friends',
-                select: ('-__v -thoughts')
+                select: ('-__v -thought')
             })
             .select('-__v')
             .then(dbUserData => res.json(dbUserData))

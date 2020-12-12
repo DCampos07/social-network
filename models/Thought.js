@@ -3,7 +3,6 @@ const dateFormat = require('../utils/dateFormat');
 
 const ReactionSchema = new Schema(
   {
-    // set custom id to avoid confusion with parent comment _id
     reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId()
@@ -12,10 +11,10 @@ const ReactionSchema = new Schema(
       type: String,
       required: "You must enter a reaction",
       trim: true,
-      minlength: [1, "Oh no! That's not enough characters."],
+      minlength: [4, "Oh no! That's not enough characters."],
       maxlength: [280, "Opps, that's too many characters"]
     },
-    
+
     userName: {
       type: String,
       required: "Seems you forgot to write your username"
@@ -53,7 +52,7 @@ const ThoughtSchema = new Schema(
       get: createdAtVal => dateFormat(createdAtVal)
     },
     // use ReactionSchema to validate data for a reply
-    reactions: [ReactionSchema]
+    reaction: [ReactionSchema]
   },
   {
     toJSON: {
@@ -64,8 +63,8 @@ const ThoughtSchema = new Schema(
   }
 );
 
-ThoughtSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+ThoughtSchema.virtual('reactionCount').get(function () {
+  return this.reaction.length;
 });
 
 const Thought = model('Thought', ThoughtSchema);
