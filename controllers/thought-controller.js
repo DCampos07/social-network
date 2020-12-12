@@ -16,12 +16,18 @@ const thoughtController = {
     // get one thought by id
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.thoughtId })
-            .then(dbThoughtData => res.json(dbThoughtData))
-            .catch(err => {
-                console.log(err);
-                res.sendStatus(400);
-            });
-    },
+        .then(dbThoughtData => {
+            if(!dbThoughtData) {
+                res.status(404).json({ message: 'OOps, no thoughts found with this ID.' });
+                return;
+            }
+            res.json(dbThoughtData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
+},
 
     // createThought
     createThought({ body }, res) {
@@ -33,19 +39,25 @@ const thoughtController = {
                     { new: true }
                 );
             })
-        then(dbUserData => res.json(dbUserData))
-            .catch(err => {
-                console.log(err)
-                res.sendStatus(400);
-            });
-    },
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: 'We were not able to find any thoughts with this ID.' });
+                return;
+            }
+            res.json(dbUserData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
+},
 
     // update Thought by id
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate({ _id: params.thougthId }, body, { new: true, runValidators: true })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
-                    res.status(404).json({ message: 'We were not able to find a Thought found with this id!' });
+                    res.status(404).json({ message: 'We were not able to find any thoughts with this id!' });
                     return;
                 }
                 res.json(dbThoughtData);
@@ -58,7 +70,7 @@ const thoughtController = {
         Thought.findOneAndDelete({ _id: params.thoughtId })
             .then(dbThoughtData => {
                 if(!dbThoughtData) {
-                    return res.status(404).json({ message: 'We were not able to find a Thought found with this id!' });                 
+                    return res.status(404).json({ message: 'We were not able to find any thoughts with this id!' });                 
                 }
                 return User.findOneAndUpdate(
                     { userName: dbThoughtData.userName },

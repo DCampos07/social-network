@@ -12,7 +12,7 @@ const userController = {
             })
             .populate({
                 path: 'friends',
-                select: ('__v -thoughts')
+                select: ('-__v -thoughts')
             })
             .select('-__v')
             .sort({ _id: -1 })
@@ -66,7 +66,7 @@ const userController = {
         User.findOneAndDelete({ _id: params.userId })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'Oops we found no users with this ID.' });
+                    res.status(404).json({ message: 'This user is not in our list.' });
                     return;
                 }
                 return dbUserData;

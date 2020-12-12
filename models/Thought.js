@@ -16,7 +16,7 @@ const ReactionSchema = new Schema(
       maxlength: [280, "Opps, that's too many characters"]
     },
     
-    usernName: {
+    userName: {
       type: String,
       required: "Seems you forgot to write your username"
     },
@@ -43,8 +43,8 @@ const ThoughtSchema = new Schema(
       type: String,
       required: "You must write down your thougth",
       trim: true,
-      minlength: [1, "Oh no! That's not enough characters."],
-      maxlength: [280, "Opps, that's too many characters"]
+      minlength: [4, "Oh no! That's not enough characters."],
+      maxlength: [280, "Oops, that's too many characters"]
 
     },
     createdAt: {
@@ -53,7 +53,7 @@ const ThoughtSchema = new Schema(
       get: createdAtVal => dateFormat(createdAtVal)
     },
     // use ReactionSchema to validate data for a reply
-    replies: [ReactionSchema]
+    reactions: [ReactionSchema]
   },
   {
     toJSON: {
