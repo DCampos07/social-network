@@ -43,7 +43,7 @@ const ThoughtSchema = new Schema(
       required: "You must write down your thougth",
       trim: true,
       minlength: [4, "Oh no! That's not enough characters."],
-      maxlength: [280, "Oops, that's too many characters"]
+      maxlength: [300, "Oops, that's too many characters"]
 
     },
     createdAt: {

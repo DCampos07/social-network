@@ -112,17 +112,16 @@ const thoughtController = {
     },
     // delete reaction
     deleteReaction({ params }, res) {
-       
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
-            { $pull: { reaction: { reactionId: params.reactionId } } },
+            { _id: params.thoughtId},
+            { $pull: { reaction: {reactionId: params.reactionId } } },
             { new: true }
         )
-            .then(dbUserData => res.json(dbUserData))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
     }
 }
 
