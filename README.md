@@ -13,7 +13,7 @@ DCampos07
 <li><a href="#installation">Installation</a></li> 
 <li><a href="#tech">Technology Stack</a></li> 
 <!-- <li><a href="#usage">Usage</a></li>  -->
-<!-- <li><a href="#screenshots">Screenshots</a></li>  -->
+<li><a href="#screenshots">Screenshots</a></li> 
 <li><a href="#contact">Contact</a></li> 
 <li><a href="#tests">Tests</a></li> 
   
@@ -29,9 +29,10 @@ An API for a social network web application where users can share their thoughts
 <!-- <h2 id= "usage">Usage</h2>
 Use this to manage and maintain your company's database. -->
   
-<!-- <h2 id= "screenshots">Screenshots</h2>
-<img src="./assets/screenshot1.png" alt="screenshot of app">
-<img src="./assets/screenshot2.png" alt="screenshot of app"> -->
+<h2 id= "screenshots">Screenshots</h2>
+
+![Image of the App Test](USERS_FRIENDS.gif "gif of the application tests")
+![Image of the App Test](Thoughts_Reactions.gif "gif of the application tests")
 
 
 <h2 id= "contact">Contact</h2>
@@ -43,6 +44,6 @@ Use this to manage and maintain your company's database. -->
 
     
 <h2 id= "tests">Tests</h2>
-[Video Link to Users and Friends:](https://drive.google.com/file/d/1pKuDDpCjFXYS8vo5ZYWKmn8jSJZ-cIWe/view);
-[Video Link to Thoughts and Reactions:](https://drive.google.com/file/d/1JZ5KGrK6M1DqUaJ9z1q1XQ_CBd0IcoiA/view)
+![Video Link to Users and Friends:](https://drive.google.com/file/d/1pKuDDpCjFXYS8vo5ZYWKmn8jSJZ-cIWe/view);
+![Video Link to Thoughts and Reactions:](https://drive.google.com/file/d/1JZ5KGrK6M1DqUaJ9z1q1XQ_CBd0IcoiA/view)
  
