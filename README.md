@@ -44,6 +44,9 @@ Use this to manage and maintain your company's database. -->
 
     
 <h2 id= "tests">Tests</h2>
-![Video Link to Users and Friends:](https://drive.google.com/file/d/1pKuDDpCjFXYS8vo5ZYWKmn8jSJZ-cIWe/view);
-![Video Link to Thoughts and Reactions:](https://drive.google.com/file/d/1JZ5KGrK6M1DqUaJ9z1q1XQ_CBd0IcoiA/view)
+
+View the [User & Friends walkthrough video here.](https://drive.google.com/file/d/1pKuDDpCjFXYS8vo5ZYWKmn8jSJZ-cIWe/view)
+ <br/>
+View the [Thoughts & Reactions walkthrough video here.](https://drive.google.com/file/d/1JZ5KGrK6M1DqUaJ9z1q1XQ_CBd0IcoiA/view) 
+ 
  
